@@ -1,8 +1,7 @@
 <?php
 
 
-
-function genPassword($pswLength){
+function genPassword($pswLength, $repeat){
     $specials= '!?&%$<>^+-*/()[]{}@#_=)';
     $numbers= '0123456789';
     $char = 'abcdefghijklmnopqrstuvwxyz';
@@ -18,7 +17,10 @@ function genPassword($pswLength){
         }
         $index = rand(0, strlen($pswArrChar)-1 );
         $targhetString .= $pswArrChar[$index];
-        $pswArrChar = str_replace($pswArrChar[$index], '',$pswArrChar);
+        if($repeat === 'noRepeat'){
+            $pswArrChar = str_replace($pswArrChar[$index], '',$pswArrChar);
+
+        }
     }
     return $targhetString;
 }

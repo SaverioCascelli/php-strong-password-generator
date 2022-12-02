@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/functions.php';
 session_start();
-echo genPassword($_SESSION['pswLength']);
+echo genPassword($_SESSION['pswLength'],$_SESSION['charRepeat']);
 ?>
 <!DOCTYPE html>
 <html lang="en">

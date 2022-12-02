@@ -4,9 +4,9 @@ require_once __DIR__ .'/functions.php';
 if (!empty($_GET['pswLength'])) {
     if($_GET['pswLength'] > 8 && $_GET['pswLength'] < 40){
         session_start();
-         $_SESSION['pswLength'] = $_GET['pswLength'];
-         header('Location: ./targhet.php');
-
+        $_SESSION['pswLength'] = $_GET['pswLength'];
+        $_SESSION['charRepeat'] = $_GET['charRepeat'];
+        header('Location: ./targhet.php');
     }
 
 
@@ -36,6 +36,18 @@ var_dump($_GET);
                 <form action="index.php" method="GET">
                     <input type="number" name="pswLength" class="form-control">
                     <button type="submit" class="btn btn-primary">Genera</button>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="charRepeat" value="repeat">
+                        <label class="form-check-label" >
+                            multipla ripetizione
+                        </label>
+                        </div>
+                        <div class="form-check">
+                        <input class="form-check-input" type="radio" name="charRepeat" checked value="noRepeat">
+                        <label class="form-check-label">
+                            singola ripetizione
+                        </label>
+                    </div>
                 </form>
             </div>
         </section>
