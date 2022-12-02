@@ -7,7 +7,18 @@ function genPassword($pswLength){
     $numbers= '0123456789';
     $char = 'abcdefghijklmnopqrstuvwxyz';
     $capitalChar = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $pswArrChar = $specials . $numbers . $char . $capitalChar;
 
+    $pswArrChar = $numbers . $specials . $char . $capitalChar;
+    $targhetString = '';
 
+    for ($i=0; $i < $pswLength; $i++) {
+        if(strlen($pswArrChar) < 1){
+            echo 'break';
+            break; 
+        }
+        $index = rand(0, strlen($pswArrChar)-1 );
+        $targhetString .= $pswArrChar[$index];
+        $pswArrChar = str_replace($pswArrChar[$index], '',$pswArrChar);
+    }
+    return $targhetString;
 }

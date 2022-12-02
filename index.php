@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ .'/functions.php';
 
 $bool = false;
 
@@ -6,6 +7,10 @@ if($bool){
     header('Location: ./targhet.php');
 }
 
+var_dump($_GET);
+
+echo genPassword($_GET['pswLength']);
+echo '<br>';
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +27,10 @@ if($bool){
     <div class="container">
         <section class="row">
             <div class="col">
-                <button type="submit" class="btn btn-primary">Genera</button>
+                <form action="index.php" method="GET">
+                    <input type="number" name="pswLength" class="form-control">
+                    <button type="submit" class="btn btn-primary">Genera</button>
+                </form>
             </div>
         </section>
     </div>
