@@ -9,8 +9,11 @@ if($bool){
 
 var_dump($_GET);
 
-echo genPassword($_GET['pswLength']);
-echo '<br>';
+if (isset($_GET['pswLength'])) {
+    echo genPassword($_GET['pswLength']);
+    echo '<br>';
+
+}
 ?>
 
 <!DOCTYPE html>
