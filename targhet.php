@@ -1,3 +1,8 @@
+<?php
+require_once __DIR__ . '/functions.php';
+session_start();
+echo genPassword($_SESSION['pswLength']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +15,7 @@
     
     <div class="container">
         <div class="row">
-            <div class="col">targhet page</div>
+            <div class="col"></div>
         </div>
     </div>
 </body>

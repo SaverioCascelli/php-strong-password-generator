@@ -1,19 +1,19 @@
 <?php
 require_once __DIR__ .'/functions.php';
 
-$bool = false;
+if (!empty($_GET['pswLength'])) {
+    if($_GET['pswLength'] > 8 && $_GET['pswLength'] < 40){
+        session_start();
+         $_SESSION['pswLength'] = $_GET['pswLength'];
+         header('Location: ./targhet.php');
 
-if($bool){
-    header('Location: ./targhet.php');
+    }
+
+
 }
 
 var_dump($_GET);
 
-if (isset($_GET['pswLength'])) {
-    echo genPassword($_GET['pswLength']);
-    echo '<br>';
-
-}
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +28,9 @@ if (isset($_GET['pswLength'])) {
 </head>
 <body>
     <div class="container">
+        <div class="row">
+            
+        </div>
         <section class="row">
             <div class="col">
                 <form action="index.php" method="GET">
