@@ -1,11 +1,12 @@
 <?php
 require_once __DIR__ .'/functions.php';
 
-if (!empty($_GET['pswLength'])) {
-    if($_GET['pswLength'] > 8 && $_GET['pswLength'] < 40){
+if (!empty($_GET['pswLength']) && !empty($_GET['charArr'])) {
+    if($_GET['pswLength'] >= 8 && $_GET['pswLength'] <= 40){
         session_start();
         $_SESSION['pswLength'] = $_GET['pswLength'];
         $_SESSION['charRepeat'] = $_GET['charRepeat'];
+        $_SESSION['charArr'] = $_GET['charArr'];
         header('Location: ./targhet.php');
     }
 
@@ -41,13 +42,33 @@ var_dump($_GET);
                         <label class="form-check-label" >
                             multipla ripetizione
                         </label>
-                        </div>
-                        <div class="form-check">
+                    </div>
+                    <div class="form-check">
                         <input class="form-check-input" type="radio" name="charRepeat" checked value="noRepeat">
                         <label class="form-check-label">
                             singola ripetizione
                         </label>
                     </div>
+
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked name="charArr[char]">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">minuscole</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked name="charArr[capital]">
+                        <label class="form-check-label" for="flexSwitchCheckChecked">maiuscole</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDisabled" checked name="charArr[numbers]" >
+                        <label class="form-check-label" for="flexSwitchCheckDisabled">numberi</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked name="charArr[specials]">
+                        <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">speciali</label>
+                    </div>
+
+
+
                 </form>
             </div>
         </section>
